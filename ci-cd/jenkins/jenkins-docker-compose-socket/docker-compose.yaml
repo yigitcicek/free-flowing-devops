@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  jenkins:
+    image: my-jenkins:2.387.1-lts-1
+    restart: unless-stopped
+    privileged: true
+    ports:
+      - 8080:8080
+      - 50000:50000
+    volumes:
+      - jenkins-home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  jenkins-home:
